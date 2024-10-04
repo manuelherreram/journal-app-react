@@ -1,4 +1,3 @@
-import { TurnedInNot } from "@mui/icons-material";
 import {
   Box,
   Divider,
@@ -12,16 +11,20 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
+import { TurnedInNot } from "@mui/icons-material";
 
-export const SideBar = ({ drawerWith = 240 }) => {
+export const SideBar = ({ drawerWidth = 240 }) => {
   return (
-    <Box component="nav" sx={{ sm: drawerWith, flexShrink: { sm: 0 } }}>
+    <Box
+      component="nav"
+      sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+    >
       <Drawer
-        variant="permanent"
-        open={true}
+        variant="permanent" // temporary
+        open
         sx={{
           display: { xs: "block" },
-          "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWith },
+          "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
         }}
       >
         <Toolbar>
@@ -30,6 +33,7 @@ export const SideBar = ({ drawerWith = 240 }) => {
           </Typography>
         </Toolbar>
         <Divider />
+
         <List>
           {["Enero", "Febrero", "Marzo", "Abril"].map((text) => (
             <ListItem key={text} disablePadding>
@@ -39,7 +43,9 @@ export const SideBar = ({ drawerWith = 240 }) => {
                 </ListItemIcon>
                 <Grid container>
                   <ListItemText primary={text} />
-                  <ListItemText secondary={"lorem ipsus"} />
+                  <ListItemText
+                    secondary={"Exercitation cillum irure elit consectetur."}
+                  />
                 </Grid>
               </ListItemButton>
             </ListItem>
